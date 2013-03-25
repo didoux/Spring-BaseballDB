@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="main/java/|main/resource/" kind="src" path="src"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resource"/>
+	<classpathentry kind="src" path="test/main/java"/>
+	<classpathentry kind="src" path="test/main/resource"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
@@ -18,5 +19,8 @@
 	<classpathentry kind="lib" path="lib/javassist-3.15.0-GA.jar"/>
 	<classpathentry kind="lib" path="lib/jboss-logging-3.1.0.GA.jar"/>
 	<classpathentry kind="lib" path="lib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Tomcat 7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring 3.2.2"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -23,6 +23,7 @@ public class BattingPK implements Serializable {
 
 	public BattingPK() {
 	}
+	
 	public String getPlayerID() {
 		return this.playerID;
 	}
