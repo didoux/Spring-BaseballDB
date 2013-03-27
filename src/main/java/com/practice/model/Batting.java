@@ -32,7 +32,7 @@ public class Batting implements Serializable {
 
 	private int g_batting;
 
-	private int g_old;
+	private Integer g_old;
 
 	private int gidp;
 
@@ -129,11 +129,11 @@ public class Batting implements Serializable {
 		this.g_batting = g_batting;
 	}
 
-	public int getG_old() {
+	public Integer getG_old() {
 		return this.g_old;
 	}
 
-	public void setG_old(int g_old) {
+	public void setG_old(Integer g_old) {
 		this.g_old = g_old;
 	}
 
