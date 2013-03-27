@@ -32,3 +32,8 @@ build/*.class
 
 # PDT-specific
 .buildpath
+*.classpath
+*.project
+
+*.class
+build/
