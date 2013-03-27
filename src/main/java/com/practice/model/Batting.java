@@ -17,47 +17,47 @@ public class Batting implements Serializable {
 	private BattingPK id;
 
 	@Column(name="2B")
-	private int _2b;
+	private Integer _2b;
 
 	@Column(name="3B")
-	private int _3b;
+	private Integer _3b;
 
-	private int ab;
+	private Integer ab;
 
-	private int bb;
+	private Integer bb;
 
-	private int cs;
+	private Integer cs;
 
-	private int g;
+	private Integer g;
 
-	private int g_batting;
+	private Integer g_batting;
 
 	private Integer g_old;
 
-	private int gidp;
+	private Integer gidp;
 
-	private int h;
+	private Integer h;
 
-	private int hbp;
+	private Integer hbp;
 
-	private int hr;
+	private Integer hr;
 
-	private int ibb;
+	private Integer ibb;
 
 	@Column(length=2)
 	private String lgID;
 
-	private int r;
+	private Integer r;
 
-	private int rbi;
+	private Integer rbi;
 
-	private int sb;
+	private Integer sb;
 
-	private int sf;
+	private Integer sf;
 
-	private int sh;
+	private Integer sh;
 
-	private int so;
+	private Integer so;
 
 	@Column(length=3)
 	private String teamID;
@@ -77,7 +77,7 @@ public class Batting implements Serializable {
 		return this._2b;
 	}
 
-	public void set_b(int _2b) {
+	public void set_2b(int _2b) {
 		this._2b = _2b;
 	}
 

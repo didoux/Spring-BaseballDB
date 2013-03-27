@@ -32,7 +32,8 @@ public class BaseballTest extends AbstractTest {
 //        team.setId(teamPK);
       
         batting.setTeamID("ABC");
-
+        entityManager.remove(batting);
+        
         entityManager.persist(batting);
 
         entityManager.getTransaction().commit();
