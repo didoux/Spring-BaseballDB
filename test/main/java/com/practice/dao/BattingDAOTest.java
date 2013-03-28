@@ -1,10 +1,6 @@
 package com.practice.dao;
 
 import static org.junit.Assert.assertEquals;
-
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,14 +26,33 @@ public class BattingDAOTest {
 	@Test
 	public void testAddBatting() throws Exception {
 
-     BattingPK battingPK = new BattingPK();
-     battingPK.setPlayerID("1234");
-     battingPK.setStint(1234);
-     battingPK.setYearID(2012);
-     Batting batting = new Batting();
-     batting.setLgID("NL");
-     batting.setId(battingPK);
-     batting.setTeamID("ABC");
+		 Batting batting = new Batting();
+	        BattingPK id = new BattingPK();
+	        id.setYearID(2012);
+	        id.setStint(1);
+	        id.setPlayerID("didoux");
+
+	        batting.setAb(4);
+	        batting.setH(1);
+	        batting.set_3b(0);
+	        batting.set_2b(0);
+	        batting.setHbp(0);
+	        batting.setBb(1);
+	        batting.setCs(1);
+	        batting.setG(1);
+	        batting.setG_batting(1);
+	        batting.setGidp(0);
+	        batting.setHr(1);
+	        batting.setId(id);
+	        batting.setIbb(0);
+	        batting.setLgID("NL");
+	        batting.setR(1);
+	        batting.setRbi(1);
+	        batting.setSb(0);
+	        batting.setSf(0);
+	        batting.setSh(0);
+	        batting.setSo(2);
+	        batting.setTeamID("STL");
 
      testedObject.addBatting(batting);
      
@@ -47,7 +62,7 @@ public class BattingDAOTest {
      assertEquals(batting.getId().getPlayerID(), persistedBatting.getId().getPlayerID());
      assertEquals(batting.getId().getYearID(), persistedBatting.getId().getYearID());
      assertEquals(batting.getId().getStint(), persistedBatting.getId().getStint());
-	 assertEquals("ABC", persistedBatting.getTeamID());
+	 assertEquals("STL", persistedBatting.getTeamID());
 	}
 
 }

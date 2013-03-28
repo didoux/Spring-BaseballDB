@@ -18,16 +18,24 @@ public class AbstractBaseballTests extends AbstractTransactionalJUnit4SpringCont
     protected BattingDAO battingDAO;
     @Autowired
     protected BattingService battingService;
+    
     @Test
-    public void sampleTest(){
+    public void addBatting(){
         System.out.println("Number of rows is: " + battingService.listBatting().size());
         System.out.println("Creating a new batting");
-        Batting bat = new Batting();
+
         BattingPK id = new BattingPK();
         id.setYearID(2012);
         id.setStint(1);
         id.setPlayerID("didoux");
 
+        Batting foundBatting = battingService.getBatting(id);
+        
+        if( foundBatting != null) {
+        	battingService.removeBatting(id);
+        }
+        
+        Batting bat = new Batting();
         bat.setAb(4);
         bat.setH(1);
         bat.set_3b(0);
@@ -53,5 +61,20 @@ public class AbstractBaseballTests extends AbstractTransactionalJUnit4SpringCont
         battingService.addBatting(bat);
         System.out.println("After saving batting. Id is: " + bat.getId());
         System.out.println("Number of rows now is: " + battingService.listBatting().size());
+    }
+    
+    @Test
+    public void removeBattingTest() {
+    	 BattingPK id = new BattingPK();
+         id.setYearID(2012);
+         id.setStint(1);
+         id.setPlayerID("didoux");
+
+         Batting batting = battingService.getBatting(id);
+         
+         battingService.removeBatting(id);
+    	
+    	
+    	
     }
 }

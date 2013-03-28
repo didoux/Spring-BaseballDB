@@ -24,8 +24,12 @@ public class BattingServiceImpl implements BattingService {
 
 	@Transactional
 	public List<Batting> listBatting() {
-
 		return battingDAO.listBatting();
+	}
+	
+	@Transactional
+	public Batting getBatting(BattingPK id) {
+		return battingDAO.getBatting(id);
 	}
 
 	@Transactional

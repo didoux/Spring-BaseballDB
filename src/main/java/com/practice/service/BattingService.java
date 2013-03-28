@@ -10,6 +10,7 @@ import com.practice.model.BattingPK;
 public interface BattingService {
 	
 	public void addBatting(Batting batting);
+	public Batting getBatting(BattingPK id);
 	public List<Batting> listBatting();
 	public void removeBatting(BattingPK id);
 }
