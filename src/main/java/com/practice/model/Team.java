@@ -1,6 +1,8 @@
 package com.practice.model;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -15,109 +17,64 @@ public class Team implements Serializable {
 
 	@EmbeddedId
 	private TeamPK id;
-
-	@Column(name="2B")
 	private int _2b;
-
-	@Column(name="3B")
 	private int _3b;
-
 	private int ab;
-
 	private int attendance;
-
 	private int bb;
-
 	private int bba;
-
 	private int bpf;
-
 	private int cg;
-
 	private int cs;
-
-	@Column(length=1)
 	private String divID;
-
-	@Column(length=1)
 	private String divWin;
-
 	private int dp;
-
 	private int e;
-
 	private int er;
-
 	private double era;
-
 	private double fp;
-
-	@Column(length=3)
 	private String franchID;
-
 	private int g;
-
 	private int ghome;
-
 	private int h;
-
 	private int ha;
-
 	private int hbp;
-
 	private int hr;
-
 	private int hra;
-
 	private int IPouts;
-
 	private int l;
-
-	@Column(length=1)
 	private String lgWin;
-
-	@Column(length=50)
 	private String name;
-
-	@Column(length=255)
 	private String park;
-
 	private int ppf;
-
 	private int r;
-
 	private int ra;
-
 	private int rank;
-
 	private int sb;
-
 	private int sf;
-
 	private int sho;
-
 	private int so;
-
 	private int soa;
-
 	private int sv;
-
 	@Column(length=3)
 	private String teamIDBR;
-
 	@Column(length=3)
 	private String teamIDlahman45;
-
 	@Column(length=3)
 	private String teamIDretro;
-
 	private int w;
-
 	@Column(length=1)
 	private String WCWin;
-
 	@Column(length=1)
 	private String WSWin;
+	
+	//bi-directional many-to-one association to Batting
+	@OneToMany(mappedBy="team")
+	private List<Batting> battings;
+
+	//bi-directional many-to-one association to Pitching
+	@OneToMany(mappedBy="team")
+	private List<Pitching> pitchings;
 
 	public Team() {
 	}
@@ -130,6 +87,7 @@ public class Team implements Serializable {
 		this.id = id;
 	}
 
+	@Column(name="2B")
 	public int get_2b() {
 		return this._2b;
 	}
@@ -138,6 +96,7 @@ public class Team implements Serializable {
 		this._2b = _2b;
 	}
 
+	@Column(name="3B")
 	public int get_3b() {
 		return this._3b;
 	}
@@ -202,6 +161,7 @@ public class Team implements Serializable {
 		this.cs = cs;
 	}
 
+	@Column(length=1)
 	public String getDivID() {
 		return this.divID;
 	}
@@ -210,6 +170,7 @@ public class Team implements Serializable {
 		this.divID = divID;
 	}
 
+	@Column(length=1)
 	public String getDivWin() {
 		return this.divWin;
 	}
@@ -258,6 +219,7 @@ public class Team implements Serializable {
 		this.fp = fp;
 	}
 
+	@Column(length=3)
 	public String getFranchID() {
 		return this.franchID;
 	}
@@ -338,6 +300,7 @@ public class Team implements Serializable {
 		this.l = l;
 	}
 
+	@Column(length=1)
 	public String getLgWin() {
 		return this.lgWin;
 	}
@@ -346,6 +309,7 @@ public class Team implements Serializable {
 		this.lgWin = lgWin;
 	}
 
+	@Column(length=50)
 	public String getName() {
 		return this.name;
 	}
@@ -354,6 +318,7 @@ public class Team implements Serializable {
 		this.name = name;
 	}
 
+	@Column(length=255)
 	public String getPark() {
 		return this.park;
 	}

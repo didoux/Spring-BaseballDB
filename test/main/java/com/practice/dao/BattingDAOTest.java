@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.practice.model.Batting;
 import com.practice.model.BattingPK;
+import com.practice.model.Team;
+import com.practice.model.TeamPK;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -45,14 +47,23 @@ public class BattingDAOTest {
 	        batting.setHr(1);
 	        batting.setId(id);
 	        batting.setIbb(0);
-	        batting.setLgID("NL");
 	        batting.setR(1);
 	        batting.setRbi(1);
 	        batting.setSb(0);
 	        batting.setSf(0);
 	        batting.setSh(0);
 	        batting.setSo(2);
-	        batting.setTeamID("STL");
+	        //batting.setLgID("NL");
+	        //batting.setTeamID("STL");
+	        //batting.setYearId(2013);
+	        TeamPK teamId = new TeamPK();
+	        teamId.setTeamID("SLN");
+	        teamId.setLgID("NL");
+	        teamId.setYearID(2013);
+	        Team team = new Team();
+	        team.setId(teamId);
+	        batting.setTeam(team);
+	        
 
      testedObject.addBatting(batting);
      
@@ -62,7 +73,9 @@ public class BattingDAOTest {
      assertEquals(batting.getId().getPlayerID(), persistedBatting.getId().getPlayerID());
      assertEquals(batting.getId().getYearID(), persistedBatting.getId().getYearID());
      assertEquals(batting.getId().getStint(), persistedBatting.getId().getStint());
-	 assertEquals("STL", persistedBatting.getTeamID());
+	 assertEquals("SLN", persistedBatting.getTeam().getId().getTeamID());
+	 assertEquals("NL", persistedBatting.getTeam().getId().getLgID());
+	 assertEquals(2013, persistedBatting.getTeam().getId().getYearID());
 	}
 
 }

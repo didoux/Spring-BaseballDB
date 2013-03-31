@@ -15,52 +15,28 @@ public class Batting implements Serializable {
 
 	@EmbeddedId
 	private BattingPK id;
-
-	@Column(name="2B")
 	private Integer _2b;
-
-	@Column(name="3B")
 	private Integer _3b;
-
 	private Integer ab;
-
 	private Integer bb;
-
 	private Integer cs;
-
 	private Integer g;
-
 	private Integer g_batting;
-
 	private Integer g_old;
-
 	private Integer gidp;
-
 	private Integer h;
-
 	private Integer hbp;
-
 	private Integer hr;
-
 	private Integer ibb;
-
-	@Column(length=2)
-	private String lgID;
-
 	private Integer r;
-
 	private Integer rbi;
-
 	private Integer sb;
-
 	private Integer sf;
-
 	private Integer sh;
-
 	private Integer so;
+	private Master master;
+	private Team team;
 
-	@Column(length=3)
-	private String teamID;
 
 	public Batting() {
 	}
@@ -73,19 +49,21 @@ public class Batting implements Serializable {
 		this.id = id;
 	}
 
+	@Column(name="2B")
 	public int get_2b() {
 		return this._2b;
 	}
 
-	public void set_2b(int _2b) {
+	public void set_2b(Integer _2b) {
 		this._2b = _2b;
 	}
 
-	public int get_3b() {
+	@Column(name="3B")
+	public Integer get_3b() {
 		return this._3b;
 	}
 
-	public void set_3b(int _3b) {
+	public void set_3b(Integer _3b) {
 		this._3b = _3b;
 	}
 
@@ -93,15 +71,15 @@ public class Batting implements Serializable {
 		return this.ab;
 	}
 
-	public void setAb(int ab) {
+	public void setAb(Integer ab) {
 		this.ab = ab;
 	}
 
-	public int getBb() {
+	public Integer getBb() {
 		return this.bb;
 	}
 
-	public void setBb(int bb) {
+	public void setBb(Integer bb) {
 		this.bb = bb;
 	}
 
@@ -109,23 +87,23 @@ public class Batting implements Serializable {
 		return this.cs;
 	}
 
-	public void setCs(int cs) {
+	public void setCs(Integer cs) {
 		this.cs = cs;
 	}
 
-	public int getG() {
+	public Integer getG() {
 		return this.g;
 	}
 
-	public void setG(int g) {
+	public void setG(Integer g) {
 		this.g = g;
 	}
 
-	public int getG_batting() {
+	public Integer getG_batting() {
 		return this.g_batting;
 	}
 
-	public void setG_batting(int g_batting) {
+	public void setG_batting(Integer g_batting) {
 		this.g_batting = g_batting;
 	}
 
@@ -137,79 +115,72 @@ public class Batting implements Serializable {
 		this.g_old = g_old;
 	}
 
-	public int getGidp() {
+	public Integer getGidp() {
 		return this.gidp;
 	}
 
-	public void setGidp(int gidp) {
+	public void setGidp(Integer gidp) {
 		this.gidp = gidp;
 	}
 
-	public int getH() {
+	public Integer getH() {
 		return this.h;
 	}
 
-	public void setH(int h) {
+	public void setH(Integer h) {
 		this.h = h;
 	}
 
-	public int getHbp() {
+	public Integer getHbp() {
 		return this.hbp;
 	}
 
-	public void setHbp(int hbp) {
+	public void setHbp(Integer hbp) {
 		this.hbp = hbp;
 	}
 
-	public int getHr() {
+	public Integer getHr() {
 		return this.hr;
 	}
 
-	public void setHr(int hr) {
+	public void setHr(Integer hr) {
 		this.hr = hr;
 	}
 
-	public int getIbb() {
+	public Integer getIbb() {
 		return this.ibb;
 	}
 
-	public void setIbb(int ibb) {
+	public void setIbb(Integer ibb) {
 		this.ibb = ibb;
 	}
 
-	public String getLgID() {
-		return this.lgID;
-	}
 
-	public void setLgID(String lgID) {
-		this.lgID = lgID;
-	}
-
-	public int getR() {
+	public Integer getR() {
 		return this.r;
 	}
 
-	public void setR(int r) {
+	public void setR(Integer r) {
 		this.r = r;
 	}
 
-	public int getRbi() {
+	public Integer getRbi() {
 		return this.rbi;
 	}
 
-	public void setRbi(int rbi) {
+	public void setRbi(Integer rbi) {
 		this.rbi = rbi;
 	}
 
-	public int getSb() {
+	public Integer getSb() {
 		return this.sb;
 	}
 
-	public void setSb(int sb) {
+	public void setSb(Integer sb) {
 		this.sb = sb;
 	}
 
-	public int getSf() {
+	public Integer getSf() {
 		return this.sf;
 	}
 
@@ -217,28 +188,52 @@ public class Batting implements Serializable {
 		this.sf = sf;
 	}
 
-	public int getSh() {
+	public Integer getSh() {
 		return this.sh;
 	}
 
-	public void setSh(int sh) {
+	public void setSh(Integer sh) {
 		this.sh = sh;
 	}
 
-	public int getSo() {
+	public Integer getSo() {
 		return this.so;
 	}
 
-	public void setSo(int so) {
+	public void setSo(Integer so) {
 		this.so = so;
 	}
-
-	public String getTeamID() {
-		return this.teamID;
+	//bi-directional many-to-one association to Master
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="playerID", referencedColumnName="playerID", updatable = false, nullable = false)	
+	public Master getMaster() {
+		return this.master;
 	}
 
-	public void setTeamID(String teamID) {
-		this.teamID = teamID;
+	protected void setMaster(Master master) {
+		this.master = master;
+	}
+	
+	public void defineMaster(Master master) {
+        this.setMaster(master);
+        if (!master.getBattings().contains(this)) {
+        	master.getBattings().add(this);
+        }
+    }
+	
+	//bi-directional many-to-one association to Team
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumns({
+		@JoinColumn(name="yearID", referencedColumnName="yearID"),
+		@JoinColumn(name="lgID", referencedColumnName="lgID"),
+		@JoinColumn(name="teamID", referencedColumnName="teamID")
+
+		})
+	public Team getTeam() {
+		return this.team;
 	}
 
+	public void setTeam(Team team) {
+		this.team = team;
+	}
 }

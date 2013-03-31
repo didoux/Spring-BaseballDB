@@ -15,62 +15,46 @@ public class Pitching implements Serializable {
 
 	@EmbeddedId
 	private PitchingPK id;
-
 	private double BAOpp;
-
 	private int bb;
-
 	private int bfp;
-
 	private int bk;
-
 	private int cg;
-
 	private int er;
-
 	private double era;
-
 	private int g;
-
 	private int gf;
-
 	private int gidp;
-
 	private int gs;
-
 	private int h;
-
 	private int hbp;
-
 	private int hr;
-
 	private int ibb;
-
 	private int IPouts;
-
 	private int l;
-
 	@Column(length=2)
 	private String lgID;
-
 	private int r;
-
 	private int sf;
-
 	private int sh;
-
 	private int sho;
-
 	private int so;
-
 	private int sv;
-
 	@Column(length=3)
 	private String teamID;
-
 	private int w;
-
 	private int wp;
+
+		private Master master;
+
+		//bi-directional many-to-one association to Team
+		@ManyToOne(fetch=FetchType.LAZY)
+		@JoinColumns({
+			@JoinColumn(name="lgID", referencedColumnName="lgID"),
+			@JoinColumn(name="teamID", referencedColumnName="teamID"),
+			@JoinColumn(name="yearID", referencedColumnName="yearID")
+			})
+		private Team team;
 
 	public Pitching() {
 	}
@@ -298,5 +282,31 @@ public class Pitching implements Serializable {
 	public void setWp(int wp) {
 		this.wp = wp;
 	}
+	
+	//bi-directional many-to-one association to Master
+	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.REFRESH)
+	@JoinColumn(name="playerID", referencedColumnName="playerID", updatable = false, nullable = false)	
+	public Master getMaster() {
+		return this.master;
+	}
+
+	protected void setMaster(Master master) {
+		this.master = master;
+	}
+	
+	public void defineMaster(Master master) {
+        this.setMaster(master);
+        if (!master.getPitchings().contains(this)) {
+        	master.getPitchings().add(this);
+        }
+    }
+	
+	public Team getTeam() {
+		return this.team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
+	}	
 
 }
