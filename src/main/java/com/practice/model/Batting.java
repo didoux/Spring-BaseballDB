@@ -35,7 +35,7 @@ public class Batting implements Serializable {
 	private Integer sh;
 	private Integer so;
 	private Master master;
-	private Team team;
+	private Team battingTeam;
 
 
 	public Batting() {
@@ -229,11 +229,11 @@ public class Batting implements Serializable {
 		@JoinColumn(name="teamID", referencedColumnName="teamID")
 
 		})
-	public Team getTeam() {
-		return this.team;
+	public Team getBattingTeam() {
+		return this.battingTeam;
 	}
 
-	public void setTeam(Team team) {
-		this.team = team;
+	public void setBattingTeam(Team battingTeam) {
+		this.battingTeam = battingTeam;
 	}
 }

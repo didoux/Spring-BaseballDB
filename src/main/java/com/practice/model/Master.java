@@ -20,6 +20,8 @@ public class Master implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(unique=true, nullable=false)
 	private int lahmanID;
+	@Column(length=10)
+	private String playerID;
 	@Column(length=1)
 	private String bats;
 	@Column(length=9)
@@ -69,8 +71,7 @@ public class Master implements Serializable {
 	private String nameNick;
 	@Column(length=255)
 	private String nameNote;
-	@Column(length=10)
-	private String playerID;
+
 	@Column(length=9)
 	private String retroID;
 	
@@ -348,7 +349,7 @@ public class Master implements Serializable {
 	}
 	
 	//bi-directional many-to-one association to Batting
-	@OneToMany(mappedBy="master")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	public List<Batting> getBattings() {
 		return this.battings;
 	}
@@ -359,7 +360,7 @@ public class Master implements Serializable {
 	
 	
 	//bi-directional many-to-one association to Pitching
-	@OneToMany(mappedBy="master", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	public List<Pitching> getPitchings() {
 		return this.pitchings;
 	}

@@ -44,17 +44,8 @@ public class Pitching implements Serializable {
 	private String teamID;
 	private int w;
 	private int wp;
-
-		private Master master;
-
-		//bi-directional many-to-one association to Team
-		@ManyToOne(fetch=FetchType.LAZY)
-		@JoinColumns({
-			@JoinColumn(name="lgID", referencedColumnName="lgID"),
-			@JoinColumn(name="teamID", referencedColumnName="teamID"),
-			@JoinColumn(name="yearID", referencedColumnName="yearID")
-			})
-		private Team team;
+	private Master master;
+	private Team team;
 
 	public Pitching() {
 	}
@@ -301,6 +292,14 @@ public class Pitching implements Serializable {
         }
     }
 	
+	//bi-directional many-to-one association to Team
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumns({
+		@JoinColumn(name="yearID", referencedColumnName="yearID"),
+		@JoinColumn(name="lgID", referencedColumnName="lgID"),
+		@JoinColumn(name="teamID", referencedColumnName="teamID")
+
+		})
 	public Team getTeam() {
 		return this.team;
 	}

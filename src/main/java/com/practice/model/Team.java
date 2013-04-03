@@ -69,11 +69,11 @@ public class Team implements Serializable {
 	private String WSWin;
 	
 	//bi-directional many-to-one association to Batting
-	@OneToMany(mappedBy="team")
+	@OneToMany
 	private List<Batting> battings;
 
 	//bi-directional many-to-one association to Pitching
-	@OneToMany(mappedBy="team")
+	@OneToMany
 	private List<Pitching> pitchings;
 
 	public Team() {

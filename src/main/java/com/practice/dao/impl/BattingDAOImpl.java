@@ -10,7 +10,6 @@ import com.practice.dao.GenericDAO;
 import com.practice.model.Batting;
 import com.practice.model.BattingPK;
 
-@SuppressWarnings("unchecked")
 @Repository
 public class BattingDAOImpl extends GenericDAO<BattingPK, Batting> implements BattingDAO {
 
