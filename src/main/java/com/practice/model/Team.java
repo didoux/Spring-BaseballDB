@@ -1,7 +1,6 @@
 package com.practice.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.*;
 
@@ -69,12 +68,12 @@ public class Team implements Serializable {
 	private String WSWin;
 	
 	//bi-directional many-to-one association to Batting
-	@OneToMany
-	private List<Batting> battings;
+	//@OneToMany(mappedBy="battingTeam", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	//private List<Batting> battings = new ArrayList<Batting>();
 
 	//bi-directional many-to-one association to Pitching
-	@OneToMany
-	private List<Pitching> pitchings;
+	//@OneToMany(mappedBy="pitchingTeam", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	//private List<Pitching> pitchings = new ArrayList<Pitching>();
 
 	public Team() {
 	}
@@ -92,7 +91,7 @@ public class Team implements Serializable {
 		return this._2b;
 	}
 
-	public void set_b(int _2b) {
+	public void set_2b(int _2b) {
 		this._2b = _2b;
 	}
 
@@ -454,5 +453,7 @@ public class Team implements Serializable {
 	public void setWSWin(String WSWin) {
 		this.WSWin = WSWin;
 	}
+
+
 
 }

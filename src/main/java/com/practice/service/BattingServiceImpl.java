@@ -18,8 +18,8 @@ public class BattingServiceImpl implements BattingService {
 	private BattingDAO battingDAO;
 	
 	@Transactional
-	public void addBatting(Batting batting) {
-		battingDAO.addBatting(batting);
+	public Batting addBatting(Batting batting) {
+		return battingDAO.addBatting(batting);
 	}
 
 	@Transactional
@@ -35,6 +35,15 @@ public class BattingServiceImpl implements BattingService {
 	@Transactional
 	public void removeBatting(BattingPK id) {
 		Batting bat = battingDAO.getBatting(id);
+		if( bat != null ) {
 		battingDAO.removeBatting(bat);
+		} else {
+			throw new RuntimeException("Batting  id " + id.getPlayerID() + ":" + id.getStint() + ":" + id.getYearID() + "does not exist");
+		}
+	}
+	
+	@Transactional
+	public void removeBatting(Batting batting) {
+		battingDAO.removeBatting(batting);
 	}
 }

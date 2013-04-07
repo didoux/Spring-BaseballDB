@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="src/test/java"/>
+	<classpathentry kind="src" path="src/test/resource"/>
+	<classpathentry kind="src" path="src/main/resource"/>
 	<classpathentry including="**/*.java" kind="src" path="src/main/java"/>
 	<classpathentry kind="var" path="M2_REPO/javax/transaction/com.springsource.javax.transaction/1.1.0/com.springsource.javax.transaction-1.1.0.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_17"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-context/3.2.2.RELEASE/spring-context-3.2.2.RELEASE.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/didoux/.m2/repository/org/springframework/spring-context/3.2.2.RELEASE/spring-context-3.2.2.RELEASE-javadoc.jar!/"/>
@@ -62,15 +65,16 @@
 	<classpathentry kind="var" path="M2_REPO/mysql/mysql-connector-java/5.1.24/mysql-connector-java-5.1.24.jar"/>
 	<classpathentry kind="var" path="M2_REPO/commons-dbcp/commons-dbcp/20030825.184428/commons-dbcp-20030825.184428.jar"/>
 	<classpathentry kind="var" path="M2_REPO/commons-pool/commons-pool/20030825.183949/commons-pool-20030825.183949.jar"/>
+	<classpathentry kind="var" path="M2_REPO/commons-collections/commons-collections/20040616/commons-collections-20040616.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/junit/com.springsource.org.junit/4.7.0/com.springsource.org.junit-4.7.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/org.springframework.test/3.2.2.RELEASE/org.springframework.test-3.2.2.RELEASE.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/hibernate/hibernate-entitymanager/4.1.10.Final/hibernate-entitymanager-4.1.10.Final.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/hibernate/hibernate-entitymanager/4.1.4.Final/hibernate-entitymanager-4.1.4.Final.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/hibernate/hibernate-core/4.1.4.Final/hibernate-core-4.1.4.Final.jar"/>
+	<classpathentry kind="var" path="M2_REPO/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
 	<classpathentry kind="var" path="M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/hibernate/hibernate-core/4.1.10.Final/hibernate-core-4.1.10.Final.jar"/>
-	<classpathentry kind="var" path="M2_REPO/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/didoux/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA-javadoc.jar!/"/>
@@ -103,11 +107,10 @@
 	<classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-annotations-api/7.0.37/tomcat-annotations-api-7.0.37.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-api/7.0.37/tomcat-api-7.0.37.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tomcat-util/7.0.37/tomcat-util-7.0.37.jar"/>
-	<classpathentry kind="var" path="M2_REPO/junit/junit/4.7/junit-4.7.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-test/3.1.1.RELEASE/spring-test-3.1.1.RELEASE.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-test/3.2.2.RELEASE/spring-test-3.2.2.RELEASE.jar"/>
 	<classpathentry kind="var" path="M2_REPO/taglibs/standard/1.1.2/standard-1.1.2.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/testng/testng/5.10/testng-5.10-jdk15.jar"/>
+	<classpathentry kind="var" path="M2_REPO/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

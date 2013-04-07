@@ -5,7 +5,7 @@ import java.util.List;
 import com.practice.model.Master;
 
 public interface MasterDAO {
-	public void addMaster(Master master);
+	public Master addMaster(Master master);
 
 	public Master getMaster(Integer lahmanID);
 	

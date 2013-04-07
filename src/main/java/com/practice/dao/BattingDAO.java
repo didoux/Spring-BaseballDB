@@ -7,7 +7,7 @@ import com.practice.model.BattingPK;
 
 public interface BattingDAO {
 	
-	public void addBatting(Batting batting);
+	public Batting addBatting(Batting batting);
 
 	public Batting getBatting(BattingPK id);
 	

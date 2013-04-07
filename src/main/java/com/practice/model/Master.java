@@ -71,14 +71,19 @@ public class Master implements Serializable {
 	private String nameNick;
 	@Column(length=255)
 	private String nameNote;
-
 	@Column(length=9)
 	private String retroID;
-	
+	@Column(name="throws", length=1)
 	private String throws_;
 	private int weight;
-	private List<Batting> battings = new ArrayList<Batting>();
-	private List<Pitching> pitchings = new ArrayList<Pitching>();
+	
+	//bi-directional many-to-one association to Batting
+	//@OneToMany(mappedBy="masterBatting", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	//private List<Batting> battingList = new ArrayList<Batting>();
+	
+	//bi-directional many-to-one association to Pitching
+	//@OneToMany(mappedBy="masterPitching", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	//private List<Pitching> pitchingList = new ArrayList<Pitching>();
 	
 	public Master() {
 	}
@@ -331,7 +336,6 @@ public class Master implements Serializable {
 		this.retroID = retroID;
 	}
 
-	@Column(name="throws", length=1)
 	public String getThrows_() {
 		return this.throws_;
 	}
@@ -348,25 +352,23 @@ public class Master implements Serializable {
 		this.weight = weight;
 	}
 	
-	//bi-directional many-to-one association to Batting
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	public List<Batting> getBattings() {
-		return this.battings;
-	}
 
-	public void setBattings(List<Batting> battings) {
-		this.battings = battings;
-	}
-	
-	
-	//bi-directional many-to-one association to Pitching
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	public List<Pitching> getPitchings() {
-		return this.pitchings;
-	}
-
-	public void setPitchings(List<Pitching> pitchings) {
-		this.pitchings = pitchings;
-	}
+//	public List<Batting> getBattingList() {
+//		return this.battingList;
+//	}
+//
+//	public void setBattingList(List<Batting> battingList) {
+//		this.battingList = battingList;
+//	}
+//	
+//	
+//
+//	public List<Pitching> getPitchingList() {
+//		return this.pitchingList;
+//	}
+//
+//	public void setPitchings(List<Pitching> pitchingList) {
+//		this.pitchingList = pitchingList;
+//	}
 
 }

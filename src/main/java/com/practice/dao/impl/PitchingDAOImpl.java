@@ -13,19 +13,22 @@ import com.practice.model.PitchingPK;
 @Repository
 public class PitchingDAOImpl extends GenericDAO<PitchingPK, Pitching> implements PitchingDAO {
 
-
+	@Override
 	public void addPitching(Pitching batting) {
 		persist(batting);
 	}
 
+	@Override
 	public Pitching getPitching(PitchingPK id) {
 		return findById(id);
 	}
 	
+	@Override
 	public List<Pitching> listPitching() {
 		return loadAll();
 	}
 
+	@Override
 	public void removePitching(Pitching pitching) {
 		delete(pitching);
 	}

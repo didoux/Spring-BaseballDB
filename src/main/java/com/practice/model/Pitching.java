@@ -44,8 +44,11 @@ public class Pitching implements Serializable {
 	private String teamID;
 	private int w;
 	private int wp;
-	private Master master;
-	private Team team;
+	
+	//bi-directional many-to-one association to Master
+	//@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.REFRESH)
+	//@JoinColumn(name="playerID", referencedColumnName="playerID", updatable = false, nullable = false)	
+	private Master masterPitching;
 
 	public Pitching() {
 	}
@@ -274,38 +277,37 @@ public class Pitching implements Serializable {
 		this.wp = wp;
 	}
 	
-	//bi-directional many-to-one association to Master
-	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.REFRESH)
-	@JoinColumn(name="playerID", referencedColumnName="playerID", updatable = false, nullable = false)	
-	public Master getMaster() {
-		return this.master;
-	}
+//	public Master getMasterPitching() {
+//		return this.masterPitching;
+//	}
+//
+//	protected void setMasterPitching(Master master) {
+//		this.masterPitching = master;
+//	}
+//	
+//	public void defineMasterPitching(Master master) {
+//        this.setMasterPitching(master);
+//        if (!master.getPitchingList().contains(this)) {
+//        	master.getPitchingList().add(this);
+//        }
+//    }
 
-	protected void setMaster(Master master) {
-		this.master = master;
-	}
-	
-	public void defineMaster(Master master) {
-        this.setMaster(master);
-        if (!master.getPitchings().contains(this)) {
-        	master.getPitchings().add(this);
-        }
-    }
+//	public String getPlayerID() {
+//		return playerID;
+//	}
+//
+//	public void setPlayerID(String playerID) {
+//		this.playerID = playerID;
+//	}
 	
 	//bi-directional many-to-one association to Team
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumns({
-		@JoinColumn(name="yearID", referencedColumnName="yearID"),
-		@JoinColumn(name="lgID", referencedColumnName="lgID"),
-		@JoinColumn(name="teamID", referencedColumnName="teamID")
+//	@ManyToOne(fetch=FetchType.LAZY)
+//	@JoinColumns({
+//		@JoinColumn(name="yearID", referencedColumnName="yearID"),
+//		@JoinColumn(name="lgID", referencedColumnName="lgID"),
+//		@JoinColumn(name="teamID", referencedColumnName="teamID")
+//
+//		})
 
-		})
-	public Team getTeam() {
-		return this.team;
-	}
-
-	public void setTeam(Team team) {
-		this.team = team;
-	}	
 
 }

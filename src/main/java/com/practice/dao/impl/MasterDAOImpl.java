@@ -12,8 +12,8 @@ import com.practice.dao.MasterDAO;
 public class MasterDAOImpl extends GenericDAO<Integer, Master> implements MasterDAO{
 
 	@Override
-	public void addMaster(Master master) {
-		persist(master);
+	public Master addMaster(Master master) {
+		return persist(master);
 	}
 
 	@Override

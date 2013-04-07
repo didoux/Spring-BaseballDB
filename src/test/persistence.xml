@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="baseballPU"
+		transaction-type='RESOURCE_LOCAL'>
+		<description>Hibernate 4.1</description>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<!-- the JNDI data source -->
+		<non-jta-data-source>java:comp/env/jdbc/baseballDS</non-jta-data-source>
+		<class>com.practice.model.Allstarfull</class>
+		<class>com.practice.model.AllstarfullPK</class>
+		<class>com.practice.model.Appearance</class>
+		<class>com.practice.model.AppearancePK</class>
+		<class>com.practice.model.Awardsmanager</class>
+		<class>com.practice.model.AwardsmanagerPK</class>
+		<class>com.practice.model.Awardsplayer</class>
+		<class>com.practice.model.AwardsplayerPK</class>
+		<class>com.practice.model.Awardssharemanager</class>
+		<class>com.practice.model.AwardssharemanagerPK</class>
+		<class>com.practice.model.Awardsshareplayer</class>
+		<class>com.practice.model.AwardsshareplayerPK</class>
+		<class>com.practice.model.Batting</class>
+		<class>com.practice.model.BattingPK</class>
+		<class>com.practice.model.Battingpost</class>
+		<class>com.practice.model.BattingpostPK</class>
+		<class>com.practice.model.Fielding</class>
+		<class>com.practice.model.FieldingPK</class>
+		<class>com.practice.model.Fieldingof</class>
+		<class>com.practice.model.FieldingofPK</class>
+		<class>com.practice.model.Fieldingpost</class>
+		<class>com.practice.model.FieldingpostPK</class>
+		<class>com.practice.model.Halloffame</class>
+		<class>com.practice.model.HalloffamePK</class>
+		<class>com.practice.model.Hofold</class>
+		<class>com.practice.model.Manager</class>
+		<class>com.practice.model.ManagerPK</class>
+		<class>com.practice.model.Managershalf</class>
+		<class>com.practice.model.ManagershalfPK</class>
+		<class>com.practice.model.Master</class>
+		<class>com.practice.model.Pitching</class>
+		<class>com.practice.model.PitchingPK</class>
+		<class>com.practice.model.Pitchingpost</class>
+		<class>com.practice.model.PitchingpostPK</class>
+		<class>com.practice.model.Salary</class>
+		<class>com.practice.model.SalaryPK</class>
+		<class>com.practice.model.School</class>
+		<class>com.practice.model.Schoolsplayer</class>
+		<class>com.practice.model.SchoolsplayerPK</class>
+		<class>com.practice.model.Seriespost</class>
+		<class>com.practice.model.SeriespostPK</class>
+		<class>com.practice.model.Team</class>
+		<class>com.practice.model.TeamPK</class>
+		<class>com.practice.model.Teamsfranchis</class>
+		<class>com.practice.model.Teamshalf</class>
+		<class>com.practice.model.TeamshalfPK</class>
+		<shared-cache-mode>NONE</shared-cache-mode>
+		<properties>
+			<property name='hibernate.show_sql' value='true' />
+			<property name='hibernate.format_sql' value='true' />
+			<property name='hibernate.dialect' value='org.hibernate.dialect.DerbyDialect' />
+			<property name='hibernate.hbm2ddl.auto' value='update' />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/lahman"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="mysql"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
