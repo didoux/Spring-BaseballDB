@@ -10,6 +10,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="pitching")
+@NamedQueries(value = {
+        @NamedQuery(name  = "findPitchingByPlayerID",
+                    query = "SELECT p FROM Pitching p where p.id.playerID=:playerID") 
+        })
+
 public class Pitching implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -44,17 +49,11 @@ public class Pitching implements Serializable {
 	private String teamID;
 	private int w;
 	private int wp;
-
-		private Master master;
-
-		//bi-directional many-to-one association to Team
-		@ManyToOne(fetch=FetchType.LAZY)
-		@JoinColumns({
-			@JoinColumn(name="lgID", referencedColumnName="lgID"),
-			@JoinColumn(name="teamID", referencedColumnName="teamID"),
-			@JoinColumn(name="yearID", referencedColumnName="yearID")
-			})
-		private Team team;
+	
+	//bi-directional many-to-one association to Master
+	//@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.REFRESH)
+	//@JoinColumn(name="playerID", referencedColumnName="playerID", updatable = false, nullable = false)	
+	//private Master masterPitching;
 
 	public Pitching() {
 	}
@@ -283,30 +282,37 @@ public class Pitching implements Serializable {
 		this.wp = wp;
 	}
 	
-	//bi-directional many-to-one association to Master
-	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.REFRESH)
-	@JoinColumn(name="playerID", referencedColumnName="playerID", updatable = false, nullable = false)	
-	public Master getMaster() {
-		return this.master;
-	}
+//	public Master getMasterPitching() {
+//		return this.masterPitching;
+//	}
+//
+//	protected void setMasterPitching(Master master) {
+//		this.masterPitching = master;
+//	}
+//	
+//	public void defineMasterPitching(Master master) {
+//        this.setMasterPitching(master);
+//        if (!master.getPitchingList().contains(this)) {
+//        	master.getPitchingList().add(this);
+//        }
+//    }
 
-	protected void setMaster(Master master) {
-		this.master = master;
-	}
+//	public String getPlayerID() {
+//		return playerID;
+//	}
+//
+//	public void setPlayerID(String playerID) {
+//		this.playerID = playerID;
+//	}
 	
-	public void defineMaster(Master master) {
-        this.setMaster(master);
-        if (!master.getPitchings().contains(this)) {
-        	master.getPitchings().add(this);
-        }
-    }
-	
-	public Team getTeam() {
-		return this.team;
-	}
+	//bi-directional many-to-one association to Team
+//	@ManyToOne(fetch=FetchType.LAZY)
+//	@JoinColumns({
+//		@JoinColumn(name="yearID", referencedColumnName="yearID"),
+//		@JoinColumn(name="lgID", referencedColumnName="lgID"),
+//		@JoinColumn(name="teamID", referencedColumnName="teamID")
+//
+//		})
 
-	public void setTeam(Team team) {
-		this.team = team;
-	}	
 
 }

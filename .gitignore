@@ -20,6 +20,7 @@ build/
 build/**
 build/**/*
 build/*.class
+target/
 
 # External tool builders
 .externalToolBuilders/

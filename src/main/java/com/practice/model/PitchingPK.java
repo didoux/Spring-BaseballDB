@@ -12,13 +12,13 @@ public class PitchingPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(unique=true, nullable=false, length=9)
+	@Column(unique=true, nullable=false, length=9, insertable=false, updatable=false)
 	private String playerID;
 
-	@Column(unique=true, nullable=false)
+	@Column(unique=true, nullable=false, insertable=false, updatable=false)
 	private int yearID;
 
-	@Column(unique=true, nullable=false)
+	@Column(unique=true, nullable=false, insertable=false, updatable=false)
 	private int stint;
 
 	public PitchingPK() {

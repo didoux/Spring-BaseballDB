@@ -7,13 +7,19 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 
 import com.practice.dao.BattingDAO;
+import com.practice.dao.MasterDAO;
 import com.practice.model.Batting;
 import com.practice.model.BattingPK;
+import com.practice.model.Team;
+import com.practice.model.TeamPK;
 import com.practice.service.BattingService;
  
 //@ContextConfiguration
 @ContextConfiguration(locations = {"classpath:dao-test-context.xml"})
 public class AbstractBaseballTests extends AbstractTransactionalJUnit4SpringContextTests {
+	@Autowired
+	protected MasterDAO masterDAO;
+	
     @Autowired
     protected BattingDAO battingDAO;
     @Autowired
@@ -49,14 +55,22 @@ public class AbstractBaseballTests extends AbstractTransactionalJUnit4SpringCont
         bat.setHr(1);
         bat.setId(id);
         bat.setIbb(0);
-        bat.setLgID("NL");
+        //bat.setLgID("NL");
         bat.setR(1);
         bat.setRbi(1);
         bat.setSb(0);
         bat.setSf(0);
         bat.setSh(0);
         bat.setSo(2);
-        bat.setTeamID("STL");
+        //bat.setTeamID("STL");
+        
+        TeamPK teamId = new TeamPK();
+        teamId.setTeamID("SLN");
+        teamId.setLgID("NL");
+        teamId.setYearID(2013);
+        Team team = new Team();
+        team.setId(teamId);
+        bat.setBattingTeam(team);
         
         battingService.addBatting(bat);
         System.out.println("After saving batting. Id is: " + bat.getId());
@@ -72,9 +86,8 @@ public class AbstractBaseballTests extends AbstractTransactionalJUnit4SpringCont
 
          Batting batting = battingService.getBatting(id);
          
-         battingService.removeBatting(id);
-    	
-    	
+         battingService.removeBatting(batting.getId());
+    	    	
     	
     }
 }

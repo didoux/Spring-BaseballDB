@@ -1,0 +1,55 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'SpringBaseballDB'
+version = '0.0.1-SNAPSHOT'
+
+description = """SpringBaseballDB"""
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+
+repositories {
+        
+     mavenRepo url: "http://downloads.skywayperspectives.org/maven-repo"
+     mavenRepo url: "https://repository.jboss.org/nexus/content/repositories/releases"
+     mavenRepo url: "http://repository.springsource.com/maven/bundles/release"
+     mavenRepo url: "http://repository.springsource.com/maven/bundles/external"
+     mavenRepo url: "http://repo.maven.apache.org/maven2"
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-context', version:'3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-jdbc', version:'3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version:'3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version:'3.2.2.RELEASE'
+    compile group: 'mysql', name: 'mysql-connector-java', version:'5.1.24'
+    compile group: 'commons-dbcp', name: 'commons-dbcp', version:'20030825.184428'
+    compile group: 'commons-pool', name: 'commons-pool', version:'20030825.183949'
+    compile group: 'commons-collections', name: 'commons-collections', version:'20040616'
+    compile group: 'javax.transaction', name: 'com.springsource.javax.transaction', version:'1.1.0'
+    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.0-api', version:'1.0.1.Final'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'4.1.4.Final'
+    compile group: 'org.hibernate', name: 'hibernate-core', version:'4.1.4.Final'
+    compile group: 'org.apache.tomcat', name: 'servlet-api', version:'6.0.36'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version:'1.7.3'
+    compile group: 'javassist', name: 'javassist', version:'3.12.1.GA'
+    compile group: 'org.apache.tomcat', name: 'tomcat-catalina', version:'7.0.37'
+    compile group: 'org.springframework', name: 'spring-test', version:'3.2.2.RELEASE'
+    compile group: 'taglibs', name: 'standard', version:'1.1.2'
+    compile group: 'antlr', name: 'antlr', version:'2.7.7'
+    compile group: 'dom4j', name: 'dom4j', version:'1.6.1'
+    compile group: 'org.hibernate.common', name: 'hibernate-commons-annotations', version:'4.0.1.Final'
+    compile group: 'org.javassist', name: 'javassist', version:'3.15.0-GA'
+    compile group: 'org.jboss.logging', name: 'jboss-logging', version:'3.1.0.GA'
+    compile group: 'org.jboss.spec.javax.transaction', name: 'jboss-transaction-api_1.1_spec', version:'1.0.0.Final'
+    testCompile group: 'org.junit', name: 'com.springsource.org.junit', version:'4.7.0'
+    testCompile group: 'org.springframework', name: 'org.springframework.test', version:'3.2.2.RELEASE'
+    compile(group: 'org.hamcrest', name: 'hamcrest-core', version:'1.1') {
+	provided : true
+}
+
+}

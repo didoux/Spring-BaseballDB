@@ -62,7 +62,7 @@ public class BattingDAOTest {
 	        teamId.setYearID(2013);
 	        Team team = new Team();
 	        team.setId(teamId);
-	        batting.setTeam(team);
+	        batting.setBattingTeam(team);
 	        
 
      testedObject.addBatting(batting);
@@ -73,9 +73,9 @@ public class BattingDAOTest {
      assertEquals(batting.getId().getPlayerID(), persistedBatting.getId().getPlayerID());
      assertEquals(batting.getId().getYearID(), persistedBatting.getId().getYearID());
      assertEquals(batting.getId().getStint(), persistedBatting.getId().getStint());
-	 assertEquals("SLN", persistedBatting.getTeam().getId().getTeamID());
-	 assertEquals("NL", persistedBatting.getTeam().getId().getLgID());
-	 assertEquals(2013, persistedBatting.getTeam().getId().getYearID());
+	 assertEquals("SLN", persistedBatting.getBattingTeam().getId().getTeamID());
+	 assertEquals("NL", persistedBatting.getBattingTeam().getId().getLgID());
+	 assertEquals(2013, persistedBatting.getBattingTeam().getId().getYearID());
 	}
 
 }

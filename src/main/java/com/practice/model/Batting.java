@@ -12,10 +12,12 @@ import javax.persistence.*;
 @Table(name="batting")
 public class Batting implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	@EmbeddedId
 	private BattingPK id;
+	@Column(name="2B")
 	private Integer _2b;
+	@Column(name="3B")
 	private Integer _3b;
 	private Integer ab;
 	private Integer bb;
@@ -34,8 +36,22 @@ public class Batting implements Serializable {
 	private Integer sf;
 	private Integer sh;
 	private Integer so;
-	private Master master;
-	private Team team;
+	
+	@Column(length=2)
+	private String lgID;
+	@Column(length=3)
+	private String teamID;
+	
+
+	//bi-directional many-to-one association to Team
+	//@ManyToOne(fetch=FetchType.LAZY)
+	//@JoinColumns({
+	//	@JoinColumn(name="yearID", referencedColumnName="yearID"),
+	//	@JoinColumn(name="lgID", referencedColumnName="lgID"),
+	//	@JoinColumn(name="teamID", referencedColumnName="teamID")
+//
+//		})
+//	private Team battingTeam;
 
 
 	public Batting() {
@@ -49,7 +65,7 @@ public class Batting implements Serializable {
 		this.id = id;
 	}
 
-	@Column(name="2B")
+
 	public int get_2b() {
 		return this._2b;
 	}
@@ -58,7 +74,6 @@ public class Batting implements Serializable {
 		this._2b = _2b;
 	}
 
-	@Column(name="3B")
 	public Integer get_3b() {
 		return this._3b;
 	}
@@ -184,7 +199,7 @@ public class Batting implements Serializable {
 		return this.sf;
 	}
 
-	public void setSf(int sf) {
+	public void setSf(Integer sf) {
 		this.sf = sf;
 	}
 
@@ -203,37 +218,46 @@ public class Batting implements Serializable {
 	public void setSo(Integer so) {
 		this.so = so;
 	}
-	//bi-directional many-to-one association to Master
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="playerID", referencedColumnName="playerID", updatable = false, nullable = false)	
-	public Master getMaster() {
-		return this.master;
+
+//	public Master getMasterBatting() {
+//		return this.masterBatting;
+//	}
+//
+//	protected void setMasterBatting(Master master) {
+//		this.masterBatting = master;
+//	}
+//	
+//	public void defineMaster(Master master) {
+//        this.setMasterBatting(master);
+//        if (!master.getBattingList().contains(this)) {
+//        	master.getBattingList().add(this);
+//        }
+//    }
+
+	public String getLgID() {
+		return lgID;
 	}
 
-	protected void setMaster(Master master) {
-		this.master = master;
-	}
-	
-	public void defineMaster(Master master) {
-        this.setMaster(master);
-        if (!master.getBattings().contains(this)) {
-        	master.getBattings().add(this);
-        }
-    }
-	
-	//bi-directional many-to-one association to Team
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumns({
-		@JoinColumn(name="yearID", referencedColumnName="yearID"),
-		@JoinColumn(name="lgID", referencedColumnName="lgID"),
-		@JoinColumn(name="teamID", referencedColumnName="teamID")
-
-		})
-	public Team getTeam() {
-		return this.team;
+	public void setLgID(String lgID) {
+		this.lgID = lgID;
 	}
 
-	public void setTeam(Team team) {
-		this.team = team;
+	public String getTeamID() {
+		return teamID;
 	}
+
+	public void setTeamID(String teamID) {
+		this.teamID = teamID;
+	}
+
+
+
+//	public Team getBattingTeam() {
+//		return this.battingTeam;
+//	}
+//
+//	public void setBattingTeam(Team battingTeam) {
+//		this.battingTeam = battingTeam;
+//	}
+
 }
