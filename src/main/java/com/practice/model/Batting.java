@@ -42,6 +42,10 @@ public class Batting implements Serializable {
 	@Column(length=3)
 	private String teamID;
 	
+	//bi-directional many-to-one association to Master
+	//@ManyToOne(fetch=FetchType.LAZY)
+	//@JoinColumn(name="playerID", referencedColumnName="playerID", updatable = false, nullable = false)	
+	//private Master masterBatting;
 
 	//bi-directional many-to-one association to Team
 	//@ManyToOne(fetch=FetchType.LAZY)
