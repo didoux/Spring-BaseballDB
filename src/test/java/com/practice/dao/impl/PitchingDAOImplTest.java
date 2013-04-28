@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +27,7 @@ import com.practice.util.BaseballHelper;
 @Transactional
 @TransactionConfiguration
 @ContextConfiguration(locations = { "classpath:dao-test-context.xml" })
-public class PitchingDAOImplTest {
+public class PitchingDAOImplTest extends AbstractTransactionalJUnit4SpringContextTests {
 	
 	@Autowired
 	PitchingDAO testObject;

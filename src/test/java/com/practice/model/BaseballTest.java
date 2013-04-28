@@ -11,6 +11,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.practice.util.BaseballHelper;
+
 public class BaseballTest extends AbstractTest {
 	private EntityManager entityManager;
 	
@@ -34,7 +36,7 @@ public class BaseballTest extends AbstractTest {
 	@Test
 	public void testFindAndRemove() {
 		
-		id = createBattingPK();
+		id = BaseballHelper.createBattingPK();
 
 		Batting foundBatting = entityManager.find(Batting.class, id);
 
@@ -51,23 +53,19 @@ public class BaseballTest extends AbstractTest {
 		id.setStint(1);
 		id.setYearID(2011);
 
-		Batting persistedBatting = entityManager.find(Batting.class, id);
+		Batting findBatting = entityManager.find(Batting.class, id);
 
-		assertEquals(id.getPlayerID(), persistedBatting.getId()
+		assertEquals(id.getPlayerID(), findBatting.getId()
 				.getPlayerID());
-		assertEquals(id.getYearID(), persistedBatting.getId()
+		assertEquals(id.getYearID(), findBatting.getId()
 				.getYearID());
-		assertEquals(id.getStint(), persistedBatting.getId().getStint());
+		assertEquals(id.getStint(), findBatting.getId().getStint());
+		
+		assertEquals(37, findBatting.getHr().intValue());
 
 
 	}
 	
-	private BattingPK createBattingPK() {
-		BattingPK id = new BattingPK();
-		id.setYearID(2012);
-		id.setStint(1);
-		id.setPlayerID("didoux");
-		return id;
-	}
+
 
 }

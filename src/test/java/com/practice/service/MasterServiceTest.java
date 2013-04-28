@@ -40,7 +40,6 @@ public class MasterServiceTest extends AbstractTransactionalJUnit4SpringContextT
 	    	
 	    }
 	    
-	    
 	    @Test 
 	    public void removeMasterById() {
 	    	Master persistantMaster = testObject.addMaster(m);

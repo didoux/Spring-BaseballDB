@@ -18,7 +18,7 @@ public class Master implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(unique=true, nullable=false)
-	private int lahmanID;
+	private Integer lahmanID;
 	@Column(length=10)
 	private String playerID;
 	@Column(length=1)
@@ -87,11 +87,11 @@ public class Master implements Serializable {
 	public Master() {
 	}
 
-	public int getLahmanID() {
+	public Integer getLahmanID() {
 		return this.lahmanID;
 	}
 
-	public void setLahmanID(int lahmanID) {
+	public void setLahmanID(Integer lahmanID) {
 		this.lahmanID = lahmanID;
 	}
 
