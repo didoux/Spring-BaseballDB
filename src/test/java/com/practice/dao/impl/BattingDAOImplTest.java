@@ -61,6 +61,7 @@ public class BattingDAOImplTest extends AbstractTransactionalJUnit4SpringContext
 
 		Batting persistedBatting = testedObject.addBatting(batting);
 		
+		
 		assertNotNull(persistedBatting);
 		testedObject.removeBatting(persistedBatting);
 	}

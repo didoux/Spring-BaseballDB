@@ -11,7 +11,15 @@ Lahman Readme:  http://seanlahman.com/files/database/readme2012.txt
 
 For details see: http://creativecommons.org/licenses/by-sa/3.0/
 
-Added the following changes to the Lahman database
+Installing Lahman database
+
+cd documents
+mysql -uroot -pmysql < lahman2012.sql
+
+
+
+
+I added the following changes to the Lahman database
 
 ALTER TABLE batting
 add constraint `fk_batting_master`

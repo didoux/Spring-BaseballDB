@@ -24,6 +24,7 @@ public class MasterServiceImpl implements MasterService {
 	@Transactional
 	public Master addMaster(Master master) {
 		//return masterDAO.addMaster(master);
+		System.out.println(master);
 		return masterRepository.save(master);
 	}
 

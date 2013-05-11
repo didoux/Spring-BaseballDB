@@ -33,6 +33,7 @@ public class MasterServiceTest extends AbstractTransactionalJUnit4SpringContextT
 	    public void removeMaster() {
 	    	Master persistantMaster = testObject.addMaster(m);
 	    	
+	    	assertNotNull(persistantMaster);
 	    	testObject.removeMaster(persistantMaster);
 	    	
 	    	Master findMaster = testObject.getMaster(persistantMaster.getLahmanID());
@@ -44,6 +45,7 @@ public class MasterServiceTest extends AbstractTransactionalJUnit4SpringContextT
 	    public void removeMasterById() {
 	    	Master persistantMaster = testObject.addMaster(m);
 	    	
+	    	assertNotNull(persistantMaster);
 	    	testObject.removeMaster(persistantMaster.getLahmanID());
 	    	
 	    	Master findMaster = testObject.getMaster(persistantMaster.getLahmanID());
@@ -54,6 +56,7 @@ public class MasterServiceTest extends AbstractTransactionalJUnit4SpringContextT
 	    public void getMaster() {
 	    	Master persistantMaster = testObject.addMaster(m);
 	    	
+	    	assertNotNull(persistantMaster);
 	    	Master findMaster = testObject.getMaster(persistantMaster.getLahmanID());
 	    	
 	    	assertNotNull(persistantMaster);

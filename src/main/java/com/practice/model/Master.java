@@ -350,6 +350,26 @@ public class Master implements Serializable {
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
+
+	@Override
+	public String toString() {
+		return "Master [lahmanID=" + lahmanID + ", playerID=" + playerID
+				+ ", bats=" + bats + ", bbrefID=" + bbrefID + ", birthCity="
+				+ birthCity + ", birthCountry=" + birthCountry + ", birthDay="
+				+ birthDay + ", birthMonth=" + birthMonth + ", birthState="
+				+ birthState + ", birthYear=" + birthYear + ", college="
+				+ college + ", deathCity=" + deathCity + ", deathCountry="
+				+ deathCountry + ", deathDay=" + deathDay + ", deathMonth="
+				+ deathMonth + ", deathState=" + deathState + ", deathYear="
+				+ deathYear + ", debut=" + debut + ", finalGame=" + finalGame
+				+ ", height=" + height + ", hofID=" + hofID + ", holtzID="
+				+ holtzID + ", lahman40ID=" + lahman40ID + ", lahman45ID="
+				+ lahman45ID + ", managerID=" + managerID + ", nameFirst="
+				+ nameFirst + ", nameGiven=" + nameGiven + ", nameLast="
+				+ nameLast + ", nameNick=" + nameNick + ", nameNote="
+				+ nameNote + ", retroID=" + retroID + ", throws_=" + throws_
+				+ ", weight=" + weight + "]";
+	}
 	
 
 //	public List<Batting> getBattingList() {
@@ -370,4 +390,6 @@ public class Master implements Serializable {
 //		this.pitchingList = pitchingList;
 //	}
 
+	
+	
 }
